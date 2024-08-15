@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  #myform
+  h1 Movie Watchlist App
+  form(action="/results" method="post" id="first-form")
+    fieldset
+      label(for="search") Enter your search here:
+      input(type="text" id="search" name="search")
+      input(type="submit" id="first-submit" value="Search")

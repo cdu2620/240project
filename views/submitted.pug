@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1=title
+  br
+  div(id="cookie")
+  script.
+    const cookies = document.cookie.split(';');
+    console.log(cookies);
+    if (cookies.length >= 1) {
+    document.getElementById("cookie").innerHTML +=  "You just saved";
+    for(let i = 0; i < cookies.length; i++){
+      const split = cookies[i].split('=');
+      console.log("debug");
+      let thing = '<br>' + split[1];
+      document.getElementById("cookie").innerHTML += thing; }} 

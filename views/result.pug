@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Results
+  br
+  form(action="/submitted" method="post")
+    fieldset
+        each res in data
+            div
+                - var id = res['id']
+                - var getvalues = res['title'] + "::" + res['poster_path'] + "::" + res['overview'] + "::" + res['popularity']
+                h3=res['title']
+                - var imgsrc =  "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + res['poster_path']
+                img(src=imgsrc height="450" width="300" alt="no picture found")
+                p=res['overview']
+                - var popularity = "Popularity: " + res['popularity']
+                p=popularity
+                input(type="checkbox" id=id name="id" value=getvalues)
+        input(type="submit" value="Add to watchlist")
